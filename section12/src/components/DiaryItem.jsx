@@ -10,10 +10,6 @@ const DiaryItem = ({ id, emotionId, createdDate, content }) => {
   const navigate = useNavigate();
   const { onDelete } = useContext(DiaryDispatchContext);
 
-  const onClickDelete = () => {
-    onDelete(id);
-  };
-
   return (
     <div className="diary_item">
       <div
@@ -39,7 +35,7 @@ const DiaryItem = ({ id, emotionId, createdDate, content }) => {
         <Button
           text={"삭제하기"}
           type={"NEGATIVE"}
-          onClick={onClickDelete}
+          onClick={() => onDelete(id)}
         />
       </div>
     </div>
