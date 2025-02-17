@@ -67,10 +67,11 @@ function App() {
   };
 
   // 기존 일기 수정
-  const onUpdate = (createdDate, emotionId, content) => {
+  const onUpdate = (id, createdDate, emotionId, content) => {
     dispatch({
       type: "UPDATE",
       data: {
+        id,
         createdDate,
         emotionId,
         content,
