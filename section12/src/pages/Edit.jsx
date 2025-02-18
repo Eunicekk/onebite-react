@@ -5,15 +5,16 @@ import Button from "../components/Button";
 import Editor from "../components/Editor";
 import Header from "../components/Header";
 
-import { DiaryDispatchContext } from "../App";
 import useDiary from "../hooks/useDiary";
+import usePageTitle from "../hooks/usePageTitle";
+import { DiaryDispatchContext } from "../App";
 
 const Edit = () => {
   const params = useParams();
   const navigate = useNavigate();
   const { onDelete, onUpdate } = useContext(DiaryDispatchContext);
-
   const currentDiaryItem = useDiary(params.id);
+  usePageTitle(`${params.id}번 일기 수정`);
 
   const onClickDelete = () => {
     if (window.confirm("일기를 정말 삭제할까요?")) {
